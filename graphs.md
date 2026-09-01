@@ -15,3 +15,4 @@ graph TD
     A13 -->|Incluyó a| GS
     GS -->|Estelarizó en| FG
     FG -->|Incluyó a| RW
+ 
