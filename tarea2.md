@@ -1,3 +1,5 @@
+
+```mermaid
 graph TD
     %% Estilos de nodos
     classDef person fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
