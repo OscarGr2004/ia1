@@ -249,3 +249,27 @@ EJERCICIO 2: Random Restart Hill Climbing
     Solución: [(4, 2), (8, 8), (2, 7)] | Costo final: 16
     tarea/ $ 
 <img width="371" height="144" alt="image" src="https://github.com/user-attachments/assets/3541c622-ff86-44a4-8f12-6e78180f12b9" />
+
+    Preguntas de análisis
+1.-¿Qué representa un estado en este problema?Es la posición actual de las 3 ambulancias en el mapa de 10x10. Básicamente es una lista con las coordenadas $(x, y)$ de dónde está parada cada una en ese momento.
+2.-¿Qué representa la función de costo?Es la suma de las distancias desde cada casa hasta su ambulancia más cercana. Entre menor sea este número significa que las ambulancias están mejor repartidas y van a llegar más rápido.
+3.-¿Cómo se define un vecino?Es un estado donde mueves una sola ambulancia un cuadrito hacia arriba, abajo, izquierda o derecha, dejando las otras dos exactamente en donde estaban.
+4.-¿Por qué Hill Climbing puede quedarse atrapado en un mínimo local?Porque solo revisa los pasos que tiene pegados (sus vecinos). Si todos los movimientos de a lado aumentan el costo, el algoritmo cree que ya llegó a la mejor opción y se detiene, aunque un par de casillas más allá haya una posición muchísimo mejor.
+5.-¿Qué ventaja ofrece Random Restart Hill Climbing?Que al aventar las ambulancias en lugares aleatorios varias veces, no te quedas atascado siempre en el mismo pozo (mínimo local). Tienes más probabilidades de caer cerca de la mejor solución global.
+6.-¿Cómo puede Simulated Annealing mejorar la búsqueda?Porque al principio (cuando la temperatura es alta) se permite aceptar cambios que empeoran el costo. Eso le ayuda a "dar saltos" para salirse de un mínimo local y seguir explorando antes de asentarse.
+7.-¿Qué sucede si aumentamos la cantidad de ambulancias?El costo va a bajar porque habrá ambulancias más cerca de cada casa, pero la computadora va a tardar más en procesarlo porque hay muchísimos más vecinos y combinaciones que revisar.
+8.-¿Cuál es la complejidad de explorar todos los estados posibles?Para 3 ambulancias en 100 casillas hay unas 161,700 combinaciones posibles. Para este mapa chico la fuerza bruta todavía se puede calcular, pero si el mapa fuera de 1000x1000 se vuelve imposible de procesar a tiempo.
+9.-¿Qué diferencias existen entre Hill Climbing y A?*En A* lo que te importa es la ruta o el camino paso a paso para llegar a una meta. En Hill Climbing no te importa cómo llegaste ahí ni la ruta, solo te importa encontrar la mejor configuración final de las ambulancias.
+10.-¿Por qué este problema es de optimización y no de búsqueda clásica?Porque no estamos buscando llegar a una casilla "meta" ni calcular una ruta, sino ajustar las posiciones para lograr el número de costo más bajo posible. Queremos encontrar la mejor solución entre muchas opciones.
+
+     COMPARATIVA ALGORITMOS 
+     Hill Climbing (El básico):
+Hill Climbing :
+Es el más rápido en ejecutar porque hace muy pocos pasos. Su desventaja es que es muy simple: en cuanto se topa con un mínimo local se atora y ya no sigue buscando, así que casi nunca te da el costo más bajo.
+
+Random-Restart:
+Corre rápido aunque haga los 20 intentos. Evita quedarse atorado simplemente cambiando la posición inicial de las ambulancias en cada intento, por lo que casi siempre termina encontrando la mejor solución del mapa.
+
+Simulated Annealing :
+Tarda un poco más de tiempo por el proceso de la temperatura, pero es el más eficiente para explorar. Se sale de los mínimos locales porque al principio acepta movimientos peores a propósito para recorrer el mapa, logrando un costo muy bajo sin tener que reiniciar desde cero.
+ 
