@@ -295,7 +295,6 @@ Porque no estamos buscando llegar a una casilla específica ni calcular una ruta
 
 
      COMPARATIVA ALGORITMOS 
-     Hill Climbing (El básico):
 Hill Climbing :
 Es el más rápido en ejecutar porque hace muy pocos pasos. Su desventaja es que es muy simple: en cuanto se topa con un mínimo local se atora y ya no sigue buscando, así que casi nunca te da el costo más bajo.
 
