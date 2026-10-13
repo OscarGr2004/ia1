@@ -147,6 +147,7 @@ if __name__ == '__main__':
         print("No se encontró ninguna solución que satisfaga todas las restricciones.")
     print("==========================================")
 ```
+<img width="669" height="503" alt="image" src="https://github.com/user-attachments/assets/3573a6f7-4835-448c-9179-18e44cc17150" />
 
 ---
 
