@@ -109,6 +109,43 @@ class WarehouseCSP:
             del assignment[var]
             
         return None
+# ==========================================
+# BLOQUE DE EJECUCIÓN (Lo que faltaba)
+# ==========================================
+if __name__ == '__main__':
+    print("Iniciando CSP de Robots de Almacén...\n")
+    
+    # 1. Instanciar el problema
+    csp = WarehouseCSP()
+    print("1. Dominios Iniciales:")
+    for var, dom in csp.domains.items():
+        print(f"   {var}: {dom}")
+        
+    # 2. Aplicar Node Consistency
+    csp.enforce_node_consistency()
+    print("\n2. Dominios después de Node Consistency:")
+    for var, dom in csp.domains.items():
+        print(f"   {var}: {dom}")
+        
+    # 3. Aplicar AC-3
+    csp.ac3()
+    print("\n3. Dominios después de AC-3:")
+    for var, dom in csp.domains.items():
+        print(f"   {var}: {dom}")
+        
+    # 4. Resolver usando Backtracking (que internamente usa MRV, Degree y LCV)
+    print("\n4. Iniciando Búsqueda Backtracking...")
+    solucion = csp.backtrack({})
+    
+    # Mostrar el resultado final
+    print("\n==========================================")
+    if solucion:
+        print("¡SOLUCIÓN ENCONTRADA!")
+        for tarea, robot in sorted(solucion.items()):
+            print(f"La {tarea} se asigna al robot {robot}")
+    else:
+        print("No se encontró ninguna solución que satisfaga todas las restricciones.")
+    print("==========================================")
 ```
 
 ---
